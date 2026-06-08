@@ -25,6 +25,51 @@ Le pipeline suit les principales étapes suivantes :
 7. quantification des lectures par gène ;
 8. analyses statistiques et graphiques sous R.
 
+## Structure du dépôt
+```text
+GazFrom/
+└── scripts/
+    ├── 01_pretraitement/
+    ├── 02_mapping_quantification/
+    ├── 03_expression_differentielle/
+    └── 04_annotation_fonctionnelle/
+```
+## Organisation des scripts
+Les scripts sont organisés selon les principales étapes du pipeline bioinformatique :
+
+- 01_pretraitement/ : contrôle qualité, trimming et filtration des ARN ribosomiques ;
+- 02_mapping_quantification/ : indexation des génomes, alignement et quantification ;
+- 03_expression_differentielle/ : analyses statistiques et visualisations transcriptomiques ;
+- 04_annotation_fonctionnelle/ : annotation eggNOG et enrichissement fonctionnel KEGG.
+
+## Environnement logiciel
+Les analyses ont été réalisées sous Linux sur l’infrastructure Migale (INRAE).
+Les principaux outils utilisés incluent :
+- FastQC ;
+- MultiQC ;
+- Cutadapt ;
+- SortMeRNA ;
+- Bowtie2 ;
+- samtools ;
+- featureCounts ;
+- DESeq2 ;
+- eggNOG-mapper ;
+- clusterProfiler.
+
+Les dépendances logicielles étaient gérées avec Conda.
+
+## Principales sorties du pipeline
+Le pipeline génère notamment :
+- des rapports de contrôle qualité FastQC/MultiQC ;
+- des fichiers FASTQ nettoyés ;
+- des fichiers BAM alignés ;
+- des matrices de comptages featureCounts ;
+- des résultats d’expression différentielle DESeq2 ;
+- des ACP transcriptomiques ;
+- des volcano plots ;
+- des tableaux d’annotation fonctionnelle ;
+- des analyses d’enrichissement KEGG.
+
 ## Exécution des scripts sur Migale
 Les analyses ont été exécutées sur l’infrastructure Migale (INRAE) à l’aide de scripts de soumission SGE (qsub) adaptés à chaque étape du pipeline.
 
