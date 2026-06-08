@@ -25,6 +25,11 @@ Le pipeline suit les principales étapes suivantes :
 7. quantification des lectures par gène ;
 8. analyses statistiques et graphiques sous R.
 
+## Exécution des scripts sur Migale
+Les analyses ont été exécutées sur l’infrastructure Migale (INRAE) à l’aide de scripts de soumission SGE (qsub) adaptés à chaque étape du pipeline.
+
+Pour des raisons de lisibilité, seuls les principaux scripts d’analyse bioinformatique sont inclus dans ce dépôt. Les scripts de lancement (run_*.sh) utilisés pour soumettre les jobs sur le cluster suivent tous la même structure générale : définition des chemins, vérification des entrées, chargement des environnements Conda et exécution des scripts Bash ou R correspondants.
+
 ## Important
 **Avant d’exécuter les scripts, vérifiez et adaptez les chemins d’accès aux répertoires de travail selon votre installation locale ou votre environnement de calcul.
 En particulier, les variables correspondant aux répertoires d’entrée, de sortie, aux annotations et aux environnements logiciels doivent être modifiées si nécessaire.**
